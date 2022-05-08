@@ -368,7 +368,7 @@
                                      while ($row = mysqli_fetch_array($result)) {
                                       ?>
 
-                                     <option  value="<?php  echo $row['time']; ?>" > <?php  echo $row['time']; ?> </option> 
+                                     <option  value="<?php echo $row['time']; ?>" > <?php  echo $row['time']; ?> </option> 
                                      <?php }  ?>
                               </select></label>
                         
@@ -418,42 +418,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
 </body>
 </html>
 
@@ -475,8 +439,8 @@
                          } 
                              $date = date('Y-m-d H:i:s');
 
-
-          
+                           
+                           $WorkTime = $_POST['workingTime'] ;
                            $fileSize = $_FILES['file']['size']; //storeing a name  
                            $fileError = $_FILES['file']['error']; 
                            $fileType = $_FILES['file']['type']; 
@@ -492,7 +456,7 @@
                              $fileNameNew = uniqid('',true).".".$fileactualext; 
                              $fileDestination = '../../fileupload/'.$fileNameNew;
                              move_uploaded_file($tempname,$fileDestination); 
-                             $sql ="INSERT INTO `file`(`register_id`,`createdAt`,`work_status`,`filename`) VALUES ('$id','$date',' $work_id','$fileName')";
+                             $sql ="INSERT INTO `file`(`register_id`,`createdAt`,`work_status`,`filename`,`worktime`) VALUES ('$id','$date',' $work_id','$fileName','$WorkTime')";
                             
                             
                              $result = mysqli_query($db,$sql);
