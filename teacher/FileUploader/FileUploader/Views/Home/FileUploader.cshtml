@@ -1,0 +1,39 @@
+﻿@{ ViewBag.Title = "FileUploader";
+    Layout = "~/Views/Shared/_Layout.cshtml";}
+<h2>
+    FileUploader</h2>
+@using (Html.BeginForm())
+{
+    <div>
+        <img src="" width="100" height="100" id="msg" />
+    </div>
+    <div>
+        <p id="message">
+        </p>
+    </div>
+    <input type="file" name="file" id="file" />
+    <input type="button" class="clickClass" value="submit" id="submit" />
+}
+<script type="text/javascript">
+    document.getElementById('submit').onclick = function () {
+        var formdata = new FormData(); //FormData object
+        var fileInput = document.getElementById('file');
+        //Iterating through each files selected in fileInput
+        for (i = 0; i < fileInput.files.length; i++) {
+            //Appending each file to FormData object
+            formdata.append(fileInput.files[i].name, fileInput.files[i]);
+        }
+        //Creating an XMLHttpRequest and sending
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/Home/FileUploader');
+        xhr.send(formdata);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                var msg = "Your file was successfully uploaded";
+                $("#msg").attr('src', xhr.responseText);
+                $("#message").text(msg)
+            }
+        }
+        return false;
+    }
+</script>

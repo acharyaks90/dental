@@ -1,0 +1,7 @@
+$fileTypes = array('txt','doc','docx','ppt','pptx','pdf'); // file extensions allowed
+$fileParts = pathinfo($_FILES['file']['name']);
+
+if(in_array($fileParts['extension'],$fileTypes))
+{
+   // upload file here if the extension matches to your allowed ones.
+}
