@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 12, 2022 at 08:31 AM
+-- Generation Time: Jun 25, 2022 at 01:45 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.28
 
@@ -345,6 +345,8 @@ CREATE TABLE `file` (
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL,
   `filename` varchar(255) NOT NULL,
+  `unit` int(255) NOT NULL,
+  `toothNo` varchar(255) NOT NULL,
   `worktime` varchar(255) NOT NULL,
   `completedfile` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -353,16 +355,18 @@ CREATE TABLE `file` (
 -- Dumping data for table `file`
 --
 
-INSERT INTO `file` (`file_id`, `work_status`, `register_id`, `createdAt`, `updatedAt`, `filename`, `worktime`, `completedfile`) VALUES
-(1, 5, 1, '2022-05-07 18:34:49', '0000-00-00 00:00:00', 'wetransfer_carrie-swanston_2022-05-04_0941.zip', '', ''),
-(2, 4, 1, '2022-05-07 18:58:08', '2022-05-07 18:58:54', 'PHPAjaxDeleteDataUsingCheckbox.zip', '', ' PHPAjaxDeleteDataUsingCheckbox.zip'),
-(3, 5, 3, '2022-05-08 07:18:44', '0000-00-00 00:00:00', 'wetransfer_anna-hogan_2022-05-02_0823.zip', '', ''),
-(4, 5, 3, '2022-05-08 07:21:49', '0000-00-00 00:00:00', 'wetransfer_habib-qasimi_2022-05-03_0942.zip', 'Six Hours', ''),
-(5, 5, 3, '2022-05-08 07:40:46', '0000-00-00 00:00:00', 'PHPAjaxDeleteDataUsingCheckbox.zip', 'Next Day 7 am', ''),
-(6, 5, 3, '2022-05-08 07:41:30', '0000-00-00 00:00:00', 'PHPAjaxDeleteDataUsingCheckbox.zip', 'Next Day 7 am', ''),
-(7, 5, 3, '2022-05-08 07:42:26', '0000-00-00 00:00:00', 'PHPAjaxDeleteDataUsingCheckbox.zip', 'Next Day 7 am', ''),
-(8, 5, 1, '2022-05-08 09:44:05', '0000-00-00 00:00:00', 'PHPAjaxDeleteDataUsingCheckbox.zip', '', ''),
-(9, 5, 1, '2022-05-08 09:45:29', '0000-00-00 00:00:00', 'wetransfer_anna-hogan_2022-05-02_0823.zip', 'Six Hours', '');
+INSERT INTO `file` (`file_id`, `work_status`, `register_id`, `createdAt`, `updatedAt`, `filename`, `unit`, `toothNo`, `worktime`, `completedfile`) VALUES
+(1, 5, 1, '2022-05-07 18:34:49', '0000-00-00 00:00:00', 'wetransfer_carrie-swanston_2022-05-04_0941.zip', 0, '', '', ''),
+(2, 4, 1, '2022-05-07 18:58:08', '2022-05-07 18:58:54', 'PHPAjaxDeleteDataUsingCheckbox.zip', 0, '', '', ' PHPAjaxDeleteDataUsingCheckbox.zip'),
+(3, 5, 3, '2022-05-08 07:18:44', '0000-00-00 00:00:00', 'wetransfer_anna-hogan_2022-05-02_0823.zip', 0, '', '', ''),
+(4, 5, 3, '2022-05-08 07:21:49', '0000-00-00 00:00:00', 'wetransfer_habib-qasimi_2022-05-03_0942.zip', 0, '', 'Six Hours', ''),
+(5, 5, 3, '2022-05-08 07:40:46', '0000-00-00 00:00:00', 'PHPAjaxDeleteDataUsingCheckbox.zip', 0, '', 'Next Day 7 am', ''),
+(6, 5, 3, '2022-05-08 07:41:30', '0000-00-00 00:00:00', 'PHPAjaxDeleteDataUsingCheckbox.zip', 0, '', 'Next Day 7 am', ''),
+(7, 5, 3, '2022-05-08 07:42:26', '0000-00-00 00:00:00', 'PHPAjaxDeleteDataUsingCheckbox.zip', 0, '', 'Next Day 7 am', ''),
+(8, 5, 1, '2022-05-08 09:44:05', '0000-00-00 00:00:00', 'PHPAjaxDeleteDataUsingCheckbox.zip', 7, '1 2 8', '', ''),
+(9, 5, 1, '2022-05-08 09:45:29', '0000-00-00 00:00:00', 'wetransfer_anna-hogan_2022-05-02_0823.zip', 2, '1 2', 'Six Hours', ''),
+(10, 5, 1, '2022-06-25 12:51:02', '0000-00-00 00:00:00', 'KidKinder Free Website Template - Free-CSS.com.zip', 1, '2 4 5 6 7 8 9', 'Six Hours', ''),
+(11, 5, 1, '2022-06-25 13:42:30', '0000-00-00 00:00:00', 'KidKinder Free Website Template - Free-CSS.com.zip', 4, '8,13', 'Next Day 7 am', '');
 
 -- --------------------------------------------------------
 
@@ -534,7 +538,7 @@ ALTER TABLE `employee`
 -- AUTO_INCREMENT for table `file`
 --
 ALTER TABLE `file`
-  MODIFY `file_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `file_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `register_clinic`

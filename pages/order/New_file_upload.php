@@ -253,7 +253,8 @@
                       <label for="exampleInputConfirmPassword1">Upload File  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>                      
                       <input type="file" id="file" name="file" value="file" required="required">
                       </div>
-                      <div class="form-group">
+                      <!-- From Data Tooth-->
+                      <!-- <div class="form-group">
                         <label for="exampleInputUsername1">Teeth  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   </label>
                         <input type="button" data-modal-target="#modal1" value="openModel" />
                         <div class="modal1" id="modal1">
@@ -361,7 +362,82 @@
 
                             <div id="overlay"></div>
                       
-                      </div>
+                      </div> -->
+                      <div class="form-group">
+                      <label for="exampleInputEmail1">Units  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>
+                        <label>
+                          <input type="text" name="units">
+                              </div>
+                      
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Teeth  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>
+                        <label>
+                        <input type="checkbox" id="teeth1" name="teeth[]" value="1">
+                                          <label for="teeth1">1</label>
+                                          <input type="checkbox" id="teeth2" name="teeth[]" value="2">
+                                          <label for="teeth2">2</label>
+                                          <input type="checkbox" id="teeth3" name="teeth[]" value="3">
+                                          <label for="teeth3">3</label>
+                                          <input type="checkbox" id="teeth4" name="teeth[]" value="4">
+                                          <label for="teeth4">4</label>
+                                          <input type="checkbox" id="teeth5" name="teeth[]" value="5">
+                                          <label for="teeth5">5</label>
+                                          <input type="checkbox" id="teeth6" name="teeth[]" value="6">
+                                          <label for="teeth6">6</label>
+                                          <input type="checkbox" id="teeth7" name="teeth[]" value="7">
+                                          <label for="teeth7">7</label>
+                                          <input type="checkbox" id="teeth8" name="teeth[]" value="8">
+                                          <label for="teeth8">8</label>
+                                          <input type="checkbox" id="teeth9" name="teeth[]" value="9">
+                                          <label for="teeth9">9</label>
+                                          <input type="checkbox" id="teeth10" name="teeth[]" value="10">
+                                          <label for="teeth10">10</label>
+                                          <input type="checkbox" id="teeth11" name="teeth[]" value="11">
+                                          <label for="teeth11">11</label>
+                                          <input type="checkbox" id="teeth12" name="teeth[]" value="12">
+                                          <label for="teeth12">12</label>
+                                          <input type="checkbox" id="teeth13" name="teeth[]" value="13">
+                                          <label for="teeth13">13</label>
+                                          <input type="checkbox" id="teeth14" name="teeth[]" value="14">
+                                          <label for="teeth14">14</label>
+                                          <input type="checkbox" id="teeth15" name="teeth[]" value="15">
+                                          <label for="teeth15">15</label>
+                                          <input type="checkbox" id="teeth16" name="teeth[]" value="16">
+                                          <label for="teeth16">16</label>
+                                          <input type="checkbox" id="teeth17" name="teeth[]" value="17">
+                                          <label for="teeth17">17</label>
+                                          <input type="checkbox" id="teeth18" name="teeth[]" value="18">
+                                          <label for="teeth18">18</label>
+                                          <input type="checkbox" id="teeth19" name="teeth[]" value="19">
+                                          <label for="teeth19">19</label>
+                                          <input type="checkbox" id="teeth20" name="teeth[]" value="20">
+                                          <label for="teeth20">20</label>
+                                          <input type="checkbox" id="teeth21" name="teeth[]" value="21">
+                                          <label for="teeth21">21</label>
+                                          <input type="checkbox" id="teeth22" name="teeth[]" value="22">
+                                          <label for="teeth22">22</label>
+                                          <input type="checkbox" id="teeth23" name="teeth[]" value="23">
+                                          <label for="teeth23">23</label>
+                                          <input type="checkbox" id="teeth24" name="teeth[]" value="24">
+                                          <label for="teeth24">24</label>
+                                          <input type="checkbox" id="teeth25" name="teeth[]" value="25">
+                                          <label for="teeth25">25</label>
+                                          <input type="checkbox" id="teeth26" name="teeth[]" value="26">
+                                          <label for="teeth26">26</label>
+                                          <input type="checkbox" id="teeth27" name="teeth[]" value="27">
+                                          <label for="teeth27">7</label>
+                                          <input type="checkbox" id="teeth28" name="teeth[]" value="28">
+                                          <label for="teeth8">8</label>
+                                          <input type="checkbox" id="teeth29" name="teeth[]" value="29">
+                                          <label for="teeth29">29</label>
+                                          <input type="checkbox" id="teeth30" name="teeth[]" value="30">
+                                          <label for="teeth30">30</label>
+                                          <input type="checkbox" id="teeth31" name="teeth[]" value="31">
+                                          <label for="teeth31">31</label>
+                                          <input type="checkbox" id="teeth32" name="teeth[]" value="32">
+                                          <label for="teeth32">32</label>
+                              </div>
+                       
                       <div class="form-group">
                         <label for="exampleInputEmail1">Turn Around Times  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>
                         <label>
@@ -427,6 +503,8 @@
 <?php
          if(isset($_POST['file'])){
              //insertion of the clinic id for in the main file
+
+
                      $res = mysqli_query($db, "select * from register_clinic where email='$clinic_user'");
                         while($row=mysqli_fetch_array($res))
                             {
@@ -442,7 +520,8 @@
                          } 
                              $date = date('Y-m-d H:i:s');
 
-                           
+                           $unit =$_POST['units'];
+                           $checkBox = implode(',', $_POST['teeth']);
                            $WorkTime = $_POST['workingTime'] ;
                            $fileSize = $_FILES['file']['size']; //storeing a name  
                            $fileError = $_FILES['file']['error']; 
@@ -459,7 +538,8 @@
                              $fileNameNew = uniqid('',true).".".$fileactualext; 
                              $fileDestination = '../../fileupload/'.$fileNameNew;
                              move_uploaded_file($tempname,$fileDestination); 
-                             $sql ="INSERT INTO `file`(`register_id`,`createdAt`,`work_status`,`filename`,`worktime`) VALUES ('$id','$date',' $work_id','$fileName','$WorkTime')";
+                             $sql ="INSERT INTO `file`(`register_id`,`createdAt`,`work_status`,`filename`,`worktime`,`unit`, `toothNo`)
+                              VALUES ('$id','$date',' $work_id','$fileName','$WorkTime','$unit','$checkBox')";
                             
                             
                              $result = mysqli_query($db,$sql);
