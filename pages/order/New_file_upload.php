@@ -38,12 +38,12 @@ app.controller("fileUploadCtrl", function($scope) {
             Units:"",
         })
       };
-      
-    $scope.remove = function(index) {
-      if($scope.orders.length === 1)
-      return;
-      $scope.orders.splice(index, 1);
-    };
+
+      $scope.remove = function(index) {
+        if($scope.orders.length === 1)
+        return;
+        $scope.orders.splice(index, 1);
+      };
   });
   </script>
   
