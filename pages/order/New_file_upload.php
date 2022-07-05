@@ -38,6 +38,12 @@ app.controller("fileUploadCtrl", function($scope) {
             Units:"",
         })
       };
+      
+    $scope.remove = function(index) {
+      if($scope.orders.length === 1)
+      return;
+      $scope.orders.splice(index, 1);
+    };
   });
   </script>
   
@@ -396,7 +402,7 @@ app.controller("fileUploadCtrl", function($scope) {
                           <input type="text" name="units{{$index}}">
                         </div>
                       
-                                   <div class="form-group">
+                        <div class="form-group">
                                         <label for="exampleInputEmail1">Teeth  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>
                                         <label>
                                          <input type="checkbox" id="teeth1_{{$index}}" name="teeth[]" value="1">
@@ -479,7 +485,9 @@ app.controller("fileUploadCtrl", function($scope) {
                                             </select></label>
                                       
                                     </div>
+                                    <button class="btn" type="button" ng-click="remove($index)" >Remove(-)</button>
                        </div>
+                       
                        </div>
                        </div>
                       <div class="form-group">
