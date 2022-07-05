@@ -18,7 +18,29 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Modal</title>
   <link href="style3.css" rel="stylesheet">
-  <script type="module" src="./main3.js"></script>
+  <!-- <script type="module" src="./main3.js"></script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script>
+  var app = angular.module("fileApp", []);
+
+app.controller("fileUploadCtrl", function($scope) {
+    $scope.firstName = "John";
+    $scope.lastName = "Doe";
+    $scope.orders = [
+        {   
+            Units:"",
+
+        }
+    ];
+
+    $scope.add = function() {
+        $scope.orders.push({
+            Units:"",
+        })
+      };
+  });
+  </script>
+  
 </head>
 <body>
 <div class="container-scroller">
@@ -363,95 +385,103 @@
                             <div id="overlay"></div>
                       
                       </div> -->
-                      <div class="form-group">
-                      <label for="exampleInputEmail1">Units  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>
-                        <label>
-                          <input type="text" name="units">
-                              </div>
+                      <div ng-app="fileApp">
+                      <div ng-controller="fileUploadCtrl">
+                      <button type="button" ng-click="add()">Add More + </button>
+                      <div style="border:2px solid black; padding:5px" ng-repeat="x in orders; ">
+                     
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Units  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>
+                          <label>
+                          <input type="text" name="units{{$index}}">
+                        </div>
                       
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">Teeth  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>
-                        <label>
-                        <input type="checkbox" id="teeth1" name="teeth[]" value="1">
+                                   <div class="form-group">
+                                        <label for="exampleInputEmail1">Teeth  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>
+                                        <label>
+                                         <input type="checkbox" id="teeth1_{{$index}}" name="teeth[]" value="1">
                                           <label for="teeth1">1</label>
-                                          <input type="checkbox" id="teeth2" name="teeth[]" value="2">
+                                          <input type="checkbox" id="teeth2_{{$index}}" name="teeth[]" value="2">
                                           <label for="teeth2">2</label>
-                                          <input type="checkbox" id="teeth3" name="teeth[]" value="3">
+                                          <input type="checkbox" id="teeth3_{{$index}}" name="teeth[]" value="3">
                                           <label for="teeth3">3</label>
-                                          <input type="checkbox" id="teeth4" name="teeth[]" value="4">
+                                          <input type="checkbox" id="teeth4_{{$index}}" name="teeth[]" value="4">
                                           <label for="teeth4">4</label>
-                                          <input type="checkbox" id="teeth5" name="teeth[]" value="5">
+                                          <input type="checkbox" id="teeth5_{{$index}}" name="teeth[]" value="5">
                                           <label for="teeth5">5</label>
-                                          <input type="checkbox" id="teeth6" name="teeth[]" value="6">
+                                          <input type="checkbox" id="teeth6_{{$index}}" name="teeth[]" value="6">
                                           <label for="teeth6">6</label>
-                                          <input type="checkbox" id="teeth7" name="teeth[]" value="7">
+                                          <input type="checkbox" id="teeth7_{{$index}}" name="teeth[]" value="7">
                                           <label for="teeth7">7</label>
-                                          <input type="checkbox" id="teeth8" name="teeth[]" value="8">
+                                          <input type="checkbox" id="teeth8_{{$index}}" name="teeth[]" value="8">
                                           <label for="teeth8">8</label>
-                                          <input type="checkbox" id="teeth9" name="teeth[]" value="9">
+                                          <input type="checkbox" id="teeth9_{{$index}}" name="teeth[]" value="9">
                                           <label for="teeth9">9</label>
-                                          <input type="checkbox" id="teeth10" name="teeth[]" value="10">
+                                          <input type="checkbox" id="teeth10_{{$index}}" name="teeth[]" value="10">
                                           <label for="teeth10">10</label>
-                                          <input type="checkbox" id="teeth11" name="teeth[]" value="11">
+                                          <input type="checkbox" id="teeth11_{{$index}}" name="teeth[]" value="11">
                                           <label for="teeth11">11</label>
-                                          <input type="checkbox" id="teeth12" name="teeth[]" value="12">
+                                          <input type="checkbox" id="teeth12_{{$index}}" name="teeth[]" value="12">
                                           <label for="teeth12">12</label>
-                                          <input type="checkbox" id="teeth13" name="teeth[]" value="13">
+                                          <input type="checkbox" id="teeth13_{{$index}}" name="teeth[]" value="13">
                                           <label for="teeth13">13</label>
-                                          <input type="checkbox" id="teeth14" name="teeth[]" value="14">
+                                          <input type="checkbox" id="teeth14_{{$index}}" name="teeth[]" value="14">
                                           <label for="teeth14">14</label>
-                                          <input type="checkbox" id="teeth15" name="teeth[]" value="15">
+                                          <input type="checkbox" id="teeth15_{{$index}}" name="teeth[]" value="15">
                                           <label for="teeth15">15</label>
-                                          <input type="checkbox" id="teeth16" name="teeth[]" value="16">
+                                          <input type="checkbox" id="teeth16_{{$index}}" name="teeth[]" value="16">
                                           <label for="teeth16">16</label>
-                                          <input type="checkbox" id="teeth17" name="teeth[]" value="17">
+                                          <input type="checkbox" id="teeth17_{{$index}}" name="teeth[]" value="17">
                                           <label for="teeth17">17</label>
-                                          <input type="checkbox" id="teeth18" name="teeth[]" value="18">
+                                          <input type="checkbox" id="teeth18_{{$index}}" name="teeth[]" value="18">
                                           <label for="teeth18">18</label>
-                                          <input type="checkbox" id="teeth19" name="teeth[]" value="19">
+                                          <input type="checkbox" id="teeth19_{{$index}}" name="teeth[]" value="19">
                                           <label for="teeth19">19</label>
-                                          <input type="checkbox" id="teeth20" name="teeth[]" value="20">
+                                          <input type="checkbox" id="teeth20_{{$index}}" name="teeth[]" value="20">
                                           <label for="teeth20">20</label>
-                                          <input type="checkbox" id="teeth21" name="teeth[]" value="21">
+                                          <input type="checkbox" id="teeth21_{{$index}}" name="teeth[]" value="21">
                                           <label for="teeth21">21</label>
-                                          <input type="checkbox" id="teeth22" name="teeth[]" value="22">
+                                          <input type="checkbox" id="teeth22_{{$index}}" name="teeth[]" value="22">
                                           <label for="teeth22">22</label>
-                                          <input type="checkbox" id="teeth23" name="teeth[]" value="23">
+                                          <input type="checkbox" id="teeth23_{{$index}}" name="teeth[]" value="23">
                                           <label for="teeth23">23</label>
-                                          <input type="checkbox" id="teeth24" name="teeth[]" value="24">
+                                          <input type="checkbox" id="teeth24_{{$index}}" name="teeth[]" value="24">
                                           <label for="teeth24">24</label>
-                                          <input type="checkbox" id="teeth25" name="teeth[]" value="25">
+                                          <input type="checkbox" id="teeth25_{{$index}}" name="teeth[]" value="25">
                                           <label for="teeth25">25</label>
-                                          <input type="checkbox" id="teeth26" name="teeth[]" value="26">
+                                          <input type="checkbox" id="teeth26_{{$index}}" name="teeth[]" value="26">
                                           <label for="teeth26">26</label>
-                                          <input type="checkbox" id="teeth27" name="teeth[]" value="27">
+                                          <input type="checkbox" id="teeth27_{{$index}}" name="teeth[]" value="27">
                                           <label for="teeth27">7</label>
-                                          <input type="checkbox" id="teeth28" name="teeth[]" value="28">
+                                          <input type="checkbox" id="teeth28_{{$index}}" name="teeth[]" value="28">
                                           <label for="teeth8">8</label>
-                                          <input type="checkbox" id="teeth29" name="teeth[]" value="29">
+                                          <input type="checkbox" id="teeth29_{{$index}}" name="teeth[]" value="29">
                                           <label for="teeth29">29</label>
-                                          <input type="checkbox" id="teeth30" name="teeth[]" value="30">
+                                          <input type="checkbox" id="teeth30_{{$index}}" name="teeth[]" value="30">
                                           <label for="teeth30">30</label>
-                                          <input type="checkbox" id="teeth31" name="teeth[]" value="31">
+                                          <input type="checkbox" id="teeth31_{{$index}}" name="teeth[]" value="31">
                                           <label for="teeth31">31</label>
-                                          <input type="checkbox" id="teeth32" name="teeth[]" value="32">
+                                          <input type="checkbox" id="teeth32_{{$index}}" name="teeth[]" value="32">
                                           <label for="teeth32">32</label>
-                              </div>
+                                    </div>
                        
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">Turn Around Times  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>
-                        <label>
-                        <select class="form-control"  value="workingTime" name="workingTime">
-                              <?php include_once 'confi.php';
-                                  $result = mysqli_query($db,"SELECT * FROM `working-_time`");
-                                     while ($row = mysqli_fetch_array($result)) {
-                                      ?>
+                                    <div class="form-group">
+                                      <label for="exampleInputEmail1">Turn Around Times  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>
+                                      <label>
+                                      <select class="form-control"  value="workingTime" name="workingTime">
+                                            <?php include_once 'confi.php';
+                                                $result = mysqli_query($db,"SELECT * FROM `working-_time`");
+                                                  while ($row = mysqli_fetch_array($result)) {
+                                                    ?>
 
-                                     <option  value="<?php echo $row['time']; ?>" > <?php  echo $row['time']; ?> </option> 
-                                     <?php }  ?>
-                              </select></label>
-                        
-                      </div>
+                                                  <option  value="<?php echo $row['time']; ?>" > <?php  echo $row['time']; ?> </option> 
+                                                  <?php }  ?>
+                                            </select></label>
+                                      
+                                    </div>
+                       </div>
+                       </div>
+                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword1">Rx Messages</label>
                         <textarea rows="4" cols="50"></textarea>
